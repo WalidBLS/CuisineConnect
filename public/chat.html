@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Cuisine Connect</a>
+            <a class="navbar-brand" href="/">Cuisine Connect</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
                         <a class="nav-link" href="/shopping-list.html">Liste de course </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/chat.html">Chat <span class="sr-only">(Actuel)</span></a>
+                        <a class="nav-link" href="/chat.html"> <b style="border-bottom: 2px solid gray;">Chat</b> </a>
                     </li>
                 </ul>
             </div>
@@ -155,41 +155,6 @@
               </div>
 
 
-
-              <script>
-
-                const messages = [{ role: "user", content: "Hello how are you ?" }, { role: "system", content: "fine and you ?" }]
-
-                const question = "Fine, give me a good recipe for breakfeast"
-
-                const newMessages = [
-                  ...messages,
-                  {
-                    role: "user",
-                    content: question
-                  }
-                ];
-
-                const completions = await openai.chat.completions.create({
-                  model: "gpt-3.5-turbo",
-                  messages: [
-                    {
-                      role: "system",
-                      content: "Tu es un chef cuisinier de 5 ans d'expérience. Chaque fois qu'un utilisateur te pose une question, tu lui répondra simplement. Tu répondra seulement du texte et en francais."
-                    },
-                    ...newMessages
-                  ]
-                });
-                res.status(200).json({
-                  messages: [
-                    ...newMessages,
-                    completions.choices[0].message
-                  ]
-                })
-
-              </script>
-
-
               <div class="form-outline">
                 <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
                 <label class="form-label" for="textAreaExample">Type your message</label>
@@ -204,6 +169,7 @@
     </div>
   </section>
 
+  <script src="js/chat.js"></script>
 </body>
 
 </html>
