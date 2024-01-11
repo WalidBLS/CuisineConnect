@@ -55,7 +55,8 @@ app.get('/accompagnement',  async (req, res) => {
         },
         {
           "name": " riz ",
-        }]}
+        }
+        ]}
 
     const completions = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
@@ -63,8 +64,8 @@ app.get('/accompagnement',  async (req, res) => {
             {
                 role: "system",
                 content: "Tu es un chef cuisinier aidant les utilisateurs à récupérer des idées d'accompagnement pour une recette." +
-                    " Chaque fois qu'un utilisateur te donne une recette, tu lui fourniras 7 idées d'acompagnements qui vont avec ce plat comme du vin, un dessert, un fromage etc." +
-                    " Je veux que ta réponse soit un objet JSON. L'objet JSON devrait être une liste de d'acompagnements : {\"accompagnements\"{\"name\": \" chaîne de caractères\" }}"
+                    "Chaque fois qu'un utilisateur te donne une recette, tu lui fourniras 7 idées d'acompagnements qui vont avec ce plat comme du vin, un dessert, un fromage etc." +
+                    "Je veux que ta réponse soit un objet JSON. L'objet JSON devrait être une liste de d'acompagnements : {\"accompagnements\"{\"name\": \" chaîne de caractères\", \"description\": \" chaîne de caractères\"}}"
             },
             {
                 role: "user",
