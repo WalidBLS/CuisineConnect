@@ -23,8 +23,7 @@ function buildAccompagnements(recipe) {
 }
 function buildShoppingList(recipe) {
     return `
-        donne moi ma liste de courses pour faire ce plat :${recipe.name},
-        la description de la recette est ${recipe.description}
+        donne moi ma liste de courses pour faire ce plat :${recipe},
     `
 }
 
@@ -88,10 +87,10 @@ app.post('/accompagnement',  async (req, res) => {
 
 app.get('/shopping-list',  async (req, res) => {
 
-    const recipe = {name: "Spaghetti Bolognese", description: "Classic Italian pasta dish with rich meat sauce."}
-    const recipe2 = {name: "Bœuf bourguignon", description: "Le bœuf bourguignon est une recette de cuisine d'estouffade de bœuf considerée aujourd'hui comme étant traditionnelle de la cuisine bourguignonne"}
-    const recipe3 = {name: "paella", description: "La paella est une spécialité culinaire traditionnelle espagnole à base de riz rond, originaire de la région de Valence,"}
-    const fakeRecipe = {name: "sandale", description: "Pas de description"}
+    const recipe = "spaghetti Bolognese"
+    const recipe2 = "bouf bourguignon"
+    const recipe3 ="paella"
+    const fakeRecipe ="sandale"
 
     const completions = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
@@ -99,8 +98,8 @@ app.get('/shopping-list',  async (req, res) => {
             {
                 role: "system",
                 content: "Tu es un chef cuisinier, un utilisateur viendra te demander une recette pour un plat qu'il te fournira." +
-                    "Chaque fois qu'un utilisateur te donne un plat, tu lui fourniras la liste de courses précise pour faire ce plat" +
-                    "Je veux que ta réponse soit un objet JSON ecrit en francais. L'objet JSON devrait être une liste de d'ingrédients : {\"ingredients\"{\"name\": \"chaîne de caractères\"}} ." +
+                    "Chaque fois qu'un utilisateur te donne un plat, tu lui fourniras la liste de courses pour faire ce plat" +
+                    "Je veux que ta réponse soit un objet JSON ecrit en francais. L'objet JSON devrait être une liste de d'ingrédients : {\"ingredients\"{\"name\": \"nom de l'ingredientsans quantités\"}} ." +
                     "si la demande de l'utilisateur n'est pas un plat, L'objet JSON devrait être une liste de d'ingrédients : {\"error\"\"Ce n'est pas un plat\"} ."
             },
             {
