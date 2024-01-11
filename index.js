@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
+app.use(express.static('public'));
 
 app.use(cors({ origin: '*' }));
 
@@ -10,13 +11,6 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 const openai = require('./lib/openai')
-
-app.get('/',  async (req, res) => {
-
-    console.log(openai)
-    res.send("Hello Walid")
-
-})
 
 function buildPrompt(recipe) {
     return `
