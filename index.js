@@ -14,11 +14,11 @@ const openai = require('./lib/openai')
 
 function buildPrompt(recipe) {
     return `
-Suggérer les accompagnements possible pour cette recête : 
-Nom de la recette est ${recipe.name}
-Description de la recette est ${recipe.description}
-les ingrédients de la recette sont : 
-${recipe.ingredients.map(ingredient=>`- ${ingredient.name}\n`)}
+        Suggérer les accompagnements possible pour cette recête : 
+        Nom de la recette est ${recipe.name}
+        Description de la recette est ${recipe.description}
+        les ingrédients de la recette sont : 
+        ${recipe.ingredients.map(ingredient=>`- ${ingredient.name}\n`)}
     `
 }
 
@@ -36,17 +36,39 @@ app.get('/accompagnement',  async (req, res) => {
         {
           "name": "Tomato Sauce",
         }]}
+    const recipe2 = {name: "Bœuf bourguignon", description: "Le bœuf bourguignon est une recette de cuisine d'estouffade de bœuf considerée aujourd'hui comme étant traditionnelle de la cuisine bourguignonne", ingredients: [
+        {
+          "name": "boeuf",
+        },
+        {
+          "name": "lardons",
+        },
+        {
+          "name": "carotte",
+        }]}
+    const recipe3 = {name: "paella", description: "La paella est une spécialité culinaire traditionnelle espagnole à base de riz rond, originaire de la région de Valence,", ingredients: [
+        {
+          "name": "filet de poulet",
+        },
+        {
+          "name": "crevettes",
+        },
+        {
+          "name": " riz ",
+        }]}
 
     const completions = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
             {
                 role: "system",
-                content: "Tu es un chef cuisinier aidant les utilisateurs à récupérer des idées d'accompagnement pour une recette. Chaque fois qu'un utilisateur te donne une recette, tu renverras un objet JSON et uniquement un objet JSON pas de texte avant ou après qui contiendra les propriété suivantes que tu rempliras en fonction de la recette : name, description. Ces valeurs doivent être des chaînes de caractères en français (seules les clés sont en anglais)."
+                content: "Tu es un chef cuisinier aidant les utilisateurs à récupérer des idées d'accompagnement pour une recette." +
+                    " Chaque fois qu'un utilisateur te donne une recette, tu lui fourniras 7 idées d'acompagnements qui vont avec ce plat comme du vin, un dessert, un fromage etc." +
+                    " Je veux que ta réponse soit un objet JSON. L'objet JSON devrait être une liste de d'acompagnements : {\"accompagnements\"{\"name\": \" chaîne de caractères\" }}"
             },
             {
                 role: "user",
-                content: buildPrompt(recipe)
+                content: buildPrompt(recipe3)
             }
         ]
     });
