@@ -22,7 +22,7 @@ function buildPrompt(recipe) {
     `
 }
 
-app.get('/accompagnement',  async (req, res) => {
+app.post('/accompagnement',  async (req, res) => {
 
     //const {text} = req.body()
 

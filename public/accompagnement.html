@@ -9,17 +9,28 @@
     <div class="container">
 
         <div id="root">
-            <nav id="main-nav" class="navbar">
+            <nav id="main-nav" class="sidebar">
                 <a href="/">Home</a>
                 <a href="/accompagnement.html">Accompagnement</a>
                 <a href="/shopping-list.html">Shopping List</a>
                 <a href="/chat.html">Chat </a>
-
             </nav>
-            <div id="main-page"></div>
+        </div>
+        
+        <div>   PAGE ACCOMPAGNEMENT   </div>
+
+        <div class="container">
+            <h1>Suggestion d'accompagnements :</h1>
+            <form id="accompagnement-form">
+                <button type="submit">Chercher</button>
+                <div id="loader" class="loader" hidden></div>
+            </form>
+    
+            <div id="response" class="response"> </div>
+    
         </div>
 
-        <div> Home Page CuisineConnect </div>
+        
     </div>
 
     <script src="js/script.js"></script>
