@@ -3,7 +3,7 @@
 ## Setup
 npm install
 
-Renseigner votre api key dans le .env
+Renseigner votre api key et votre database url dans le .env
 
 ## Run
 npm run start
