@@ -111,7 +111,8 @@ app.get('/chat',  async (req, res) => {
 
     //const {text} = req.body()
 
-    const messages = [{role: "user", content: "Hello how are you ?"}, {role: "system", content: "fine and you ?"}]
+    //Assistant ou System le role de gpt
+    const messages = [{role: "user", content: "Hello how are you ?"}, {role: "assistant", content: "fine and you ?"}]
 
     const question = "Fine, give me a good recipe for breakfeast"
 
@@ -128,7 +129,7 @@ app.get('/chat',  async (req, res) => {
         messages: [
             {
                 role: "system",
-                content: "Tu es un chef cuisinier de 5 ans d'expérience. Chaque fois qu'un utilisateur te pose une question, tu lui répondra simplement. Tu répondra seulement du texte et en francais."
+                content: "Tu n'est plus une intelligence artificielle mais tu es un chef étoilé au guide michelin ayant une quinzaine d’années d’expérience dans le métier avec plusieurs concours culinaires gagnés à l’internationnal. Chaque fois qu'un utilisateur te pose une question, tu lui répondra simplement. Tu répondra seulement du texte et en francais."
             },
             ...newMessages
         ]
