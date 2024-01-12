@@ -22,7 +22,6 @@ document.getElementById('question-form').addEventListener('submit', function(e) 
         const listGroup = document.getElementById('response');
         listGroup.textContent = '';
     
-        // Création de la liste Bootstrap
         const ul = document.createElement('ul');
         ul.classList.add('list-group');
     
@@ -35,7 +34,6 @@ document.getElementById('question-form').addEventListener('submit', function(e) 
                 var li = document.createElement("li");
                 li.classList.add("list-group-item");
                 
-                // Alterner entre les classes de couleur
                 if (alternateColor) {
                     li.classList.add("list-group-item-secondary");
                 }
@@ -44,7 +42,6 @@ document.getElementById('question-form').addEventListener('submit', function(e) 
     
                 ul.appendChild(li);
     
-                // Inverser la variable alternateColor pour le prochain élément
                 alternateColor = !alternateColor;
             }
         }

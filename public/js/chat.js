@@ -86,8 +86,7 @@ document.getElementById('chat-form').addEventListener('submit', function(e) {
 
     })
     .catch(error => {
-        //titre.hidden = true;
-        //loader.hidden = true;
+        loader.hidden = true;
         responseDiv.textContent = 'Erreur: Impossible de récupérer le chat';
         console.error('Erreur:', error);
     });

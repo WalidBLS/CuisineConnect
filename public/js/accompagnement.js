@@ -42,6 +42,11 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 console.log(data)
                 loader.hidden = true;
+                var Div = document.createElement("div");
+                Div.innerHTML = "Voici les accompagnements que nous vous conseillons :";
+                Div.classList.add("mb-2");
+                responseDiv.appendChild(Div);
+
                 for (var key in data.result.accompagnements) {
                     if (data.result.accompagnements.hasOwnProperty(key)) {
                         var item = data.result.accompagnements[key];
