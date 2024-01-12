@@ -21,11 +21,6 @@ function buildAccompagnements(recipe) {
         ${recipe.ingredients.map(ingredient=>`- ${ingredient.name}\n`)}
     `
 }
-function buildShoppingList(recipe) {
-    return `
-        donne moi ma liste de courses pour faire ce plat :${recipe},
-    `
-}
 
 app.post('/accompagnement',  async (req, res) => {
 
@@ -85,12 +80,9 @@ app.post('/accompagnement',  async (req, res) => {
 })
 
 
-app.get('/shopping-list',  async (req, res) => {
+app.post('/shopping-list',  async (req, res) => {
 
-    const recipe = "spaghetti Bolognese"
-    const recipe2 = "bouf bourguignon"
-    const recipe3 ="paella"
-    const fakeRecipe ="sandale"
+    const recipe = req.body.question
 
     const completions = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
@@ -99,12 +91,12 @@ app.get('/shopping-list',  async (req, res) => {
                 role: "system",
                 content: "Tu es un chef cuisinier, un utilisateur viendra te demander une recette pour un plat qu'il te fournira." +
                     "Chaque fois qu'un utilisateur te donne un plat, tu lui fourniras la liste de courses pour faire ce plat" +
-                    "Je veux que ta réponse soit un objet JSON ecrit en francais. L'objet JSON devrait être une liste de d'ingrédients : {\"ingredients\"{\"name\": \"nom de l'ingredient sans quantités\"}} ." +
-                    "si la demande de l'utilisateur n'est pas un plat, L'objet JSON devrait être une liste de d'ingrédients : {\"error\"\"Ce n'est pas un plat\"} ."
+                    "Je veux que ta réponse soit un objet JSON ecrit en francais. L'objet JSON devrait être une liste d'ingrédients uniquement, pas de quantités : {\"ingredients\"{\"name\": \"nom de l'ingredient \"}} ." +
+                    "si la demande de l'utilisateur n'est pas un plat, L'objet JSON devrait être une liste d'ingrédients : {\"error\"\"Ce n'est pas un plat\"} ."
             },
             {
                 role: "user",
-                content: buildShoppingList(recipe)
+                content: "donne moi ma liste de courses pour faire ce plat : " + recipe
             }
         ]
     });

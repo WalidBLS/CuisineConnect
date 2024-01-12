@@ -35,9 +35,18 @@
         </div>
     </nav>
 
-        <div> PAGE SHOPPING LIST </div>
+    <div class="container">
+        <h1>Récupérer une liste de course :</h1>
+        <form id="question-form">
+            <input type="text" id="question-input" placeholder="Donnez la recette concernée ici" required>
+            <button type="submit">Valider</button>
+            <div id="loader" class="loader" hidden></div>
+        </form>
+
+        <div id="response" class="response"></div>
+
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/shopping-list.js"></script>
 </body>
 </html>
