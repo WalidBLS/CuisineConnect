@@ -36,14 +36,37 @@
     </nav>
 
     <div class="container">
-        <h1>Récupérer une liste de course :</h1>
-        <form id="question-form">
-            <input type="text" id="question-input" placeholder="Donnez la recette concernée ici" required>
-            <button type="submit">Valider</button>
-            <div id="loader" class="loader" hidden></div>
-        </form>
-
-        <div id="response" class="response"></div>
+        <br>
+        <div class="card" style="width: 50%;">
+            <div class="card-body">
+                <h1 class="card-title">Récupérer une liste de course :</h1>
+                <p class="card-text">
+                    <form id="question-form">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="question-input" placeholder="Donnez la recette concernée ici" required style="border-radius: 10px;"  >
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit" style="margin-left: 10px;">Valider</button>
+                            </div>
+                        </div>
+                    </form>
+                </p>
+            </div>
+        </div>
+        
+          
+<br>
+<div id="loader" class="loader" hidden style="margin-right: 75%;"></div>
+<br>
+    
+<div class="card" id="titre" hidden style="width: 50%;">
+  <div class="card-body">
+    <h5 class="card-title">Ingrédients nécessaire pour votre recette :</h5>
+    <p class="card-text">
+        <ul class="list-group" style="width: 610px;">
+            <div id="response" class="response"></div>
+        </ul></p>
+  </div>
+</div>
 
     </div>
 
