@@ -53,37 +53,32 @@
             </div>
             <div class="card-body">
 
-              <div class="d-flex flex-row justify-content-start mb-4"> <!-- MESSAGE CHAT GTP -->
-                <img
-                  src="https://static.vecteezy.com/ti/vecteur-libre/p3/10054157-chat-bot-robot-avatar-en-cercle-forme-ronde-isole-sur-fond-blanc-illustrationle-de-stock-technologie-ai-futuriste-aide-communication-conversation-concept-dans-un-style-plat-vectoriel.jpg"
-                  alt="avatar 1" style="width: 45px; height: 100%;">
-                <div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
-                  <p class="small mb-0">
+                <div id="card-messages">   
 
-                    ICI MESSAGE CHAT GPT
+                    <div class="d-flex flex-row justify-content-start mb-4"> <!-- MESSAGE CHAT GTP -->
+                        <img
+                        src="https://static.vecteezy.com/ti/vecteur-libre/p3/10054157-chat-bot-robot-avatar-en-cercle-forme-ronde-isole-sur-fond-blanc-illustrationle-de-stock-technologie-ai-futuriste-aide-communication-conversation-concept-dans-un-style-plat-vectoriel.jpg"
+                        alt="avatar 1" style="width: 45px; height: 100%;">
+                        <div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
+                        <p class="small mb-0">
+    
+                            Bonjour, comment puis-je vous aider ?
+    
+                        </p>
+                        </div>
+                    </div>
 
-                  </p>
                 </div>
-              </div>
 
-              <div class="d-flex flex-row justify-content-end mb-4 text-center"> <!-- MESSAGE USER -->
-                <div class="p-3 me-3 border" style="border-radius: 15px; background-color: #fbfbfb;">
-                    <p class="small mb-0">
-                        ICI MESSAGE USER
-                    </p>
-                </div>
-                <img src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="avatar 1" style="width: 45px; height: 100%;">
-            </div>
-            
+              
             <form class="form-outline" id="chat-form">
-                <textarea class="form-control" id="textAreaExample" rows="2"></textarea>
+                <textarea class="form-control" id="textAreaChat" rows="2"></textarea>
                 <div class="text-center"> <!-- Ajout de la classe text-center ici -->
                     <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
                 </div>
             </form>
             
             
-
             </div>
           </div>
 

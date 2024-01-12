@@ -10,7 +10,28 @@ app.use(cors({ origin: '*' }));
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
+const sequelize = require('./lib/sequelize');
 const openai = require('./lib/openai')
+
+
+/**
+ * Postgres connection
+ */
+sequelize
+	.authenticate()
+	.then(() => {
+		console.log('💾 Postgres database is connected successfully');
+	})
+	.catch((error) => {
+		console.error('❌ Postgres database connection failed');
+		console.trace(error);
+	});
+
+sequelize.sync().then(() => {
+	console.log('Models created successfully');
+});
+
+
 
 function buildAccompagnements(recipe) {
     return `
@@ -107,14 +128,10 @@ app.post('/shopping-list',  async (req, res) => {
 })
 
 
-app.get('/chat',  async (req, res) => {
+app.post('/chat',  async (req, res) => {
 
-    //const {text} = req.body()
-
-    //Assistant ou System le role de gpt
-    const messages = [{role: "user", content: "Hello how are you ?"}, {role: "assistant", content: "fine and you ?"}]
-
-    const question = "Fine, give me a good recipe for breakfeast"
+    const {messages} = req.body
+    const {question} = req.body
 
     const newMessages = [
         ...messages,
