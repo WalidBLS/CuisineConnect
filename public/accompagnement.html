@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CuisineConnect</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Cuisine Connect</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/accompagnement.html"> <b style="border-bottom: 2px solid gray;">Recettes</b> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shopping-list.html">Liste de course</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/chat.html">Chat</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+
+        <div class="row">
+            <div class="col-md-4">
+                <form class="accompagnement-form">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://static.vecteezy.com/system/resources/previews/025/118/356/non_2x/fresh-seafood-paella-a-gourmet-spanish-meal-generated-by-ai-free-photo.jpg" class="card-img-top" alt="Recipe image">
+                        <div class="card-body">
+                            <h5 class="card-title">Paella</h5>
+                            <p class="card-text">La paella est une spécialité culinaire traditionnelle espagnole à base de riz rond, originaire de la région de Valence</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">filet de poulet</li>
+                                <li class="list-group-item">crevettes</li>
+                                <li class="list-group-item">riz</li>
+                                <li class="list-group-item">moules</li>
+                                <li class="list-group-item">chorizo</li>
+                            </ul>
+                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #212529; border-color: #212529;">
+                                Accompagnement
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-4">
+                <form class="accompagnement-form">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://static.vecteezy.com/ti/photos-gratuite/p2/26543930-stock-de-spaghetti-bolognaise-dans-cuisine-table-ai-genere-photo.jpg" class="card-img-top" alt="Recipe image">
+                        <div class="card-body">
+                            <h5 class="card-title">Spaghetti bolognaise</h5>
+                            <p class="card-text">Plat de pâtes italien classique avec une sauce à la viande.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">spaghetti</li>
+                                <li class="list-group-item">viande Hachée</li>
+                                <li class="list-group-item">sauce Tomate</li>
+                            </ul>
+                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #212529; border-color: #212529;">
+                                Accompagnement
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+            <div class="col-md-4">
+                <form class="accompagnement-form">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://jemangefrancais.com/img/cms/Photos%20Blog/boeuf%20bourguignon.jpg" class="card-img-top" alt="Recipe image">
+                        <div class="card-body">
+                            <h5 class="card-title">Bœuf bourguignon</h5>
+                            <p class="card-text">Le bœuf bourguignon est une recette de cuisine d'estouffade de bœuf considerée aujourd'hui comme étant traditionnelle de la cuisine bourguignonne</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">boeuf</li>
+                                <li class="list-group-item">lardons</li>
+                                <li class="list-group-item">carottes</li>
+                                <li class="list-group-item">vin rouge</li>
+                                <li class="list-group-item">oignons</li>
+                                <li class="list-group-item">ail</li>
+                            </ul>
+                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #212529; border-color: #212529;">
+                                Accompagnement
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        
+        
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">{{VARIABLE TITRE}}</h1>
+
+                            <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                        </div>
+                        <div class="modal-body">
+                            
+                            <!-- REPONSE -->
+                            <ul class="list-group">
+                                <div id="response" class="response"> </div>
+                            </ul>
+                            <div id="loader" class="loader" hidden></div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/accompagnement.js"></script>
+</body>
+</html>
+
+

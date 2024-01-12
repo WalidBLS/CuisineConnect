@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CuisineConnect</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Cuisine Connect</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Accueil </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/accompagnement.html">Recettes</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/shopping-list.html"> <b style="border-bottom: 2px solid gray;">Liste de course</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/chat.html">Chat</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <br>
+        <div class="card" style="width: 50%;">
+            <div class="card-body">
+                <h1 class="card-title">Récupérer une liste de course :</h1>
+                <p class="card-text">
+                    <form id="question-form">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="question-input" placeholder="Donnez la recette concernée ici" required style="border-radius: 10px;"  >
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit" style="margin-left: 10px;">Valider</button>
+                            </div>
+                        </div>
+                    </form>
+                </p>
+            </div>
+        </div>
+        
+          
+<br>
+<div id="loader" class="loader" hidden style="margin-right: 75%;"></div>
+<br>
+    
+<div class="card" id="titre" hidden style="width: 50%;">
+  <div class="card-body">
+    <h5 class="card-title">Ingrédients nécessaires pour votre recette :</h5>
+    <p class="card-text">
+        <ul class="list-group">
+            <div id="response" class="response"></div>
+        </ul></p>
+  </div>
+</div>
+
+    </div>
+
+    <script src="js/shopping-list.js"></script>
+</body>
+</html>
