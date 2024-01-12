@@ -1,6 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const { User } = require('./models/'); // Importez le modèle User
+const bcrypt = require('bcrypt');
+
 
 const app = express();
 app.use(express.static('public'));
@@ -148,6 +151,33 @@ app.get('/chat',  async (req, res) => {
       ]})
 
 })
+
+app.post('/register', async (req, res) => {
+    try {
+        const { username, email, password } = req.body;
+
+        const existingUser = await User.findOne({ where: { email } });
+        if (existingUser) {
+            return res.status(400).json({ message: 'L\'utilisateur existe déjà.' });
+        }
+
+        // Hash du mot de passe
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Création de l'utilisateur dans la base de données
+        const newUser = await User.create({
+            username,
+            email,
+            password: hashedPassword
+        });
+
+        return res.status(201).json(newUser);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Erreur lors de l\'inscription.' });
+    }
+});
+
 
 
 
