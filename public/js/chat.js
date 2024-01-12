@@ -2,10 +2,11 @@ document.getElementById('chat-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const questionInput = document.getElementById('textAreaChat');
     const question = questionInput.value;
-    //const loader = document.getElementById('loader');
+    const loader = document.getElementById('loader');
     const responseDiv = document.getElementById('chat1');
-
-    //loader.hidden = false; 
+    
+    loader.hidden = false; 
+    questionInput.value = '';
 
 
     var paragraphs = responseDiv.querySelectorAll('p');
@@ -33,7 +34,6 @@ document.getElementById('chat-form').addEventListener('submit', function(e) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data)
         
         function createMessageElement(message) {
             var div = document.createElement("div");
@@ -75,6 +75,7 @@ document.getElementById('chat-form').addEventListener('submit', function(e) {
             return div;
         }
 
+        loader.hidden = true;
         var parentElement = document.querySelector('#card-messages');
         parentElement.innerHTML = "";
         data.messages.forEach(function (message) {

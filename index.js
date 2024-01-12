@@ -37,7 +37,7 @@ function buildAccompagnements(recipe) {
     return `
         Suggérer les accompagnements possible pour cette recête : 
         Nom de la recette est ${recipe.name}
-        Description de la recette est ${recipe.description}
+        Description de la recette est : ${recipe.description}
         les ingrédients de la recette sont : 
         ${recipe.ingredients.map(ingredient=>`- ${ingredient.name}\n`)}
     `
@@ -45,39 +45,7 @@ function buildAccompagnements(recipe) {
 
 app.post('/accompagnement',  async (req, res) => {
 
-    //const {text} = req.body()
-
-    const recipe = {name: "Spaghetti Bolognese", description: "Classic Italian pasta dish with rich meat sauce.", ingredients: [
-        {
-          "name": "Spaghetti",
-        },
-        {
-          "name": "Ground Beef",
-        },
-        {
-          "name": "Tomato Sauce",
-        }]}
-    const recipe2 = {name: "Bœuf bourguignon", description: "Le bœuf bourguignon est une recette de cuisine d'estouffade de bœuf considerée aujourd'hui comme étant traditionnelle de la cuisine bourguignonne", ingredients: [
-        {
-          "name": "boeuf",
-        },
-        {
-          "name": "lardons",
-        },
-        {
-          "name": "carotte",
-        }]}
-    const recipe3 = {name: "paella", description: "La paella est une spécialité culinaire traditionnelle espagnole à base de riz rond, originaire de la région de Valence,", ingredients: [
-        {
-          "name": "filet de poulet",
-        },
-        {
-          "name": "crevettes",
-        },
-        {
-          "name": " riz ",
-        }
-        ]}
+    const {recipe} = req.body
 
     const completions = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
@@ -90,11 +58,10 @@ app.post('/accompagnement',  async (req, res) => {
             },
             {
                 role: "user",
-                content: buildAccompagnements(recipe3)
+                content: buildAccompagnements(recipe)
             }
         ]
     });
-
 
     res.status(200).json({result: JSON.parse(completions.choices[0].message.content)})
 

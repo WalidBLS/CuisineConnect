@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat Cuisine</title>
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/chat.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -53,23 +54,24 @@
             </div>
             <div class="card-body">
 
-                <div id="card-messages">   
-
-                    <div class="d-flex flex-row justify-content-start mb-4"> <!-- MESSAGE CHAT GTP -->
-                        <img
-                        src="https://static.vecteezy.com/ti/vecteur-libre/p3/10054157-chat-bot-robot-avatar-en-cercle-forme-ronde-isole-sur-fond-blanc-illustrationle-de-stock-technologie-ai-futuriste-aide-communication-conversation-concept-dans-un-style-plat-vectoriel.jpg"
-                        alt="avatar 1" style="width: 45px; height: 100%;">
-                        <div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
-                        <p class="small mb-0">
-    
-                            Bonjour, comment puis-je vous aider ?
-    
-                        </p>
-                        </div>
-                    </div>
-
+              <div id="card-messages">   
+                
+                <div class="d-flex flex-row justify-content-start mb-4"> <!-- MESSAGE CHAT GTP -->
+                  <img
+                  src="https://static.vecteezy.com/ti/vecteur-libre/p3/10054157-chat-bot-robot-avatar-en-cercle-forme-ronde-isole-sur-fond-blanc-illustrationle-de-stock-technologie-ai-futuriste-aide-communication-conversation-concept-dans-un-style-plat-vectoriel.jpg"
+                  alt="avatar 1" style="width: 45px; height: 100%;">
+                  <div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
+                    <p class="small mb-0">
+                      
+                      Bonjour, comment puis-je vous aider ?
+                      
+                    </p>
+                  </div>
                 </div>
-
+                
+              </div>
+              
+              <div id="loader" class="loader" hidden></div>
               
             <form class="form-outline" id="chat-form">
                 <textarea class="form-control" id="textAreaChat" rows="2"></textarea>
